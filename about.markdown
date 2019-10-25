@@ -3,4 +3,4 @@ layout: page
 title: About
 ---
 
-Hello there! This is a page I will use to share things with colleagues and supervisors. If you are looking for my public page, you can find it (here.)[https://homepage.univie.ac.at/noichlm94/]
+Hello there! This is a page I will use to share things with colleagues and supervisors. If you are looking for my public page, you can find it [here.](https://homepage.univie.ac.at/noichlm94/)
