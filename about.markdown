@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Homework No. 3
+title: About
 ---
 
-Here's a homepage. **And** *here* is $good^3$ old Markdown.
+Hello there! This is a page I will use to share things with colleagues and supervisors. If you are looking for my public page, you can find it (here.)[https://homepage.univie.ac.at/noichlm94/]
