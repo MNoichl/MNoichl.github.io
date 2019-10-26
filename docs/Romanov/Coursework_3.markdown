@@ -5,7 +5,7 @@ has_children: false
 parent: DH, Romanov, 2019
 ---
 
-
+<style>
 @font-face{
     font-family:'Roboto';
     font-style: normal;
@@ -13,7 +13,7 @@ parent: DH, Romanov, 2019
     src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v9/abcd.woff) 
     format('woff');
 }
-
+</style>
 
 <p style="color: #3c3c3c;font-family:'Roboto'" id="evm-lcol-title-contact"><span style="color: #0000cd;">Contact</span></p>
 
