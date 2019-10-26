@@ -16,7 +16,7 @@ And here is some markdown:
 4. 🐷 Suckling pig markdown 🐷,
 5. 🧜‍♀️Mermaid markdown🧜‍♀️,
 6. 𝔉𝔞𝔟𝔲𝔩𝔬𝔲𝔰 𝔪𝔞𝔯𝔨𝔡𝔬𝔴𝔫,
-7.                                                     Stray markdown,
+7. ......................................................Stray markdown,
 8. The markdown included in the present classification,
     - *The markdown that belongs to the Emperor,*
     - *The embalmed markdown,*
