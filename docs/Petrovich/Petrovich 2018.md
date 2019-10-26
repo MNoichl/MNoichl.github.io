@@ -48,11 +48,11 @@ As we can see, the transitivity gets smaller over time, reaches its lowest point
  ...
 # Gini Coefficients
 There is another
-interesting thing we can do to get an idea about dynamics in the discipline. In some sense, citations can be considered the currency of academia. And like regular currency, some receive more, some less. Indeed, like with regular currency, a select few receive a *lot* more then everyone else. This suggests that we can use the same tools that are used to quantify inequality in societies over time to quantify inequalities in citation-counts over time. Below I have calculated the *Gini-coefficients* over the same five year windows used above (using a snippet by [Olivia Guest](https://github.com/oliviaguest/gini)).
+interesting thing we can do to get an idea about dynamics in the discipline. In some sense, citations can be considered the currency of academia. And like regular currency, some receive more, some less. Indeed, like with regular currency, a select few receive a *lot* more then everyone else. This suggests that we can use the same tools that are used to quantify inequality in societies over time to quantify inequalities in citation-counts over time. Below I have calculated the *Gini-coefficients* over the same five year windows used above (using a snippet by [Olivia Guest](https://github.com/oliviaguest/gini)). The Gini coefficient quantifies inequality on a scale from zero to one, in which zero means complete equality, while one indicates that everything is owned by only one person.
 
 ![Ginis](gini.png)
 
-I would tend to interpret high Gini Coefficients as a sign of increased specialization, as they suggest that most articles focus on a similar set of authors. A lower gini-coefficient on the other hand might be indicative of diversification: As the circle of towering figures with very high citation-counts is enlarged, it stands to reason that also the thematic field becomes more varied. By this measure, analytic philosophy, as depicted by our sample, experienced peak specialization in the early 2000s, but has become slightly more diverse since then. 
+I would tend to interpret high Gini Coefficients as a sign of increased specialization, as they suggest that most articles focus on a similar set of authors. A lower gini-coefficient on the other hand might be indicative of diversification: As the circle of towering figures with very high citation-counts is enlarged, it stands to reason that also the thematic field becomes more varied. By this measure, analytic philosophy, as depicted by our sample, experienced peak specialization in the early 2000s, but has become slightly more diverse since then.
 
 I would like to check this against the actual content of the articles though: Given full-texts, or at least word-vectors, it would be easy to calculate similar measures.
 
@@ -126,8 +126,7 @@ Petrovich, Eugenio, and Valerio Buonomo. 2018. "Reconstructing Late
 Analytic Philosophy. A Quantitative Approach." *Philosophical Inquiries*
 6 (1): 151--82. <https://doi.org/10.4454/philinq.v6i1.184>.
 
-Probst, Daniel, and Jean-Louis Reymond. 2019 "Visualization of Very
-Large High-Dimensional Data Sets as Minimum Spanning Trees," 27.
+Probst, Daniel, and Jean-Louis Reymond. 2019. "Visualization of Very Large High-dimensional Data Sets as Minimum Spanning Trees". ChemRxiv. <https://doi:10.26434/chemrxiv.9698861.v1.>
 
 Tang, Muh-Chyun, Yun Jen Cheng, and Kuang Hua Chen. 2017. "A
 Longitudinal Study of Intellectual Cohesion in Digital Humanities Using
