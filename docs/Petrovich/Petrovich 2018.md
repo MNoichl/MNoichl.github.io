@@ -26,7 +26,7 @@ journals:
 The question that Petrovich and Buonomo are interested in is whether analytic philosophy has become more diverse in these
 thirty years. There are various ways in which one could approach this
 question. Petrovich and Buonomo go for visual inspection, and I will try to present an approach to that later. But, first and foremost Eugenio and
-me were talking about formal evaluation of the co-citation graphs. In
+I were talking about formal evaluation of the co-citation graphs. In
 what follows I took some inspiration from Tang, Cheng, and Chen (2017) who
 present a recommendable longitudinal study of the digital humanities.
 
