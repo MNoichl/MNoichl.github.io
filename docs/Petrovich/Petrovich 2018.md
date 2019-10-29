@@ -24,37 +24,34 @@ journals:
 * Philosophy and Phenomenological Research
 
 The question that Petrovich and Buonomo are interested in is whether analytic philosophy has become more diverse in these
-thirty years. There various ways in which one could approach this
+thirty years. There are various ways in which one could approach this
 question. Petrovich and Buonomo go for visual inspection, and I will try to present an approach to that later. But, first and foremost Eugenio and
 me were talking about formal evaluation of the co-citation graphs. In
-what follows I am very much inspired by Tang, Cheng, and Chen (2017) who
+what follows I took some inspiration from Tang, Cheng, and Chen (2017) who
 present a recommendable longitudinal study of the digital humanities.
 
-So the first thing I did was to try and get the transitivities for the
+## Transitivities
+
+The first thing I did was to try and get the transitivities for the
 different samples.
 [Transitivity](https://mathinsight.org/definition/transitivity_graph)
 is a very basic measure of how much a graph tends to cluster. It
 results from three times the number of triangles in the graph (in our case those triangles consist of three
 sources, of which each combination was co-cited at least once) divided
-by the number of triplets (any three sources). A fully connected graph would score the
-number 1 on this measure, while a completely unconnected graph would
+by the number of triplets (any three sources). A fully connected graph would score 1 on this measure, while a completely unconnected graph would
 result in a 0. For this little exercise I will use a sliding window
 approach, in which I always consider 5 years together. It results in the following picture:
 
 ![Transitivities](transitivity.png)
 
-As we can see, the transitivity gets smaller over time, reaches its lowest point after 2000, and then rises again. I have also looked into the size of the giant component of the network, which is the largest connected sub-graph. In all cases it was higher than 93 %, and slowly approaching 98 % over time, which means, that nearly all cited sources were connected via co-citation with the others. In other words: There was only one large network of philosophy, not many small unconnected sub-networks. As this was mostly constant, we should be able to interpret the falling transitivity as diminished local co-citation.
+As we can see, the transitivity gets smaller over time, reaches its lowest point after 2000, and then rises again. I have also looked into the size of the so called giant component of the network, which is the largest connected sub-graph. In all cases it was higher than 93 %, and slowly approaching 98 % over time, which means that nearly all cited sources were connected via co-citation with the others. In other words: There was only one large network of philosophy, not many small unconnected sub-networks. As this was mostly constant, I think we should be able to interpret the falling transitivity as diminished local co-citation: While clusters are at the beginning very tightly knit, they get more diverse over time. We can assume that it is the local connectivity that is getting smaller, as the average minimal distance of nodes in the networks, which describes how far it usually takes to get from one randomly picked node to the next, is pretty much constant over time at 3.16 steps (std: 0.06). This value is pretty small. Short average distances together with high transitivities suggest small-world networks, in which every node can be reached from every other node via only a few steps, because the network consists of tightly clustered subunits, connected via hubs. This is a property we would generally expect from co-citation-networks drawn from one discipline. It seems to me, that we can interpret the slight diminishment of small worldedness as an indication of an increase in the scope of the kind of philosophy that appears in the surveyed journals.
 
- ...
-# Gini Coefficients
-There is another
-interesting thing we can do to get an idea about dynamics in the discipline. In some sense, citations can be considered the currency of academia. And like regular currency, some receive more, some less. Indeed, like with regular currency, a select few receive a *lot* more then everyone else. This suggests that we can use the same tools that are used to quantify inequality in societies over time to quantify inequalities in citation-counts over time. Below I have calculated the *Gini-coefficients* over the same five year windows used above (using a snippet by [Olivia Guest](https://github.com/oliviaguest/gini)). The Gini coefficient quantifies inequality on a scale from zero to one, in which zero means complete equality, while one indicates that everything is owned by only one person.
+## Gini Coefficients
+We can do another thing to get an idea about dynamics in the discipline. In some sense, citations can be considered the currency of academia. And like regular currency, some receive more, some less. Indeed, like with regular currency, a select few receive a *lot* more then everyone else. This suggests that we can use the same tools that are used to quantify financial inequality in societies over time to quantify inequalities in citation-counts over time. Below I have calculated the *Gini-coefficients* over the same five year windows used above (using a snippet by [Olivia Guest](https://github.com/oliviaguest/gini)). The Gini coefficient quantifies inequality on a scale from zero to one, in which zero means complete equality, while one indicates that everything is owned by only one person.
 
 ![Ginis](gini.png)
 
-I would tend to interpret high Gini Coefficients as a sign of increased specialization, as they suggest that most articles focus on a similar set of authors. A lower gini-coefficient on the other hand might be indicative of diversification: As the circle of towering figures with very high citation-counts is enlarged, it stands to reason that also the thematic field becomes more varied. By this measure, analytic philosophy, as depicted by our sample, experienced peak specialization in the early 2000s, but has become slightly more diverse since then.
-
-I would like to check this against the actual content of the articles though: Given full-texts, or at least word-vectors, it would be easy to calculate similar measures.
+I would tend to interpret high Gini Coefficients as a sign of increased specialization, as they suggest that most articles focus on a similar set of authors. A lower gini-coefficient on the other hand might be indicative of diversification: As the circle of towering figures with very high citation-counts is enlarged, it stands to reason that also the thematic field becomes more varied. By this measure, analytic philosophy, as depicted by our sample, experienced peak specialization in the early 2000s, but has become slightly more diverse since then. This seems to be somewhat add odds with our previous result, so I'm not sure what to make of it. I would like to check this against the actual content of the articles though: Given full-texts, or at least word-vectors, it would be easy to calculate similar measures.
 
 
 # Visualization
@@ -83,7 +80,7 @@ first decade, which is why keyword quality here is low.
 
 
 ### 1985-1994
-It's supposed to be interactive. If it's not, maybe try it out at [this
+It's supposed to be interactive. If it's not´, or if the image below is too small to interact comfortably with it, maybe try it out at [this
 link](https://homepage.univie.ac.at/noichlm94/full/preprint/19851994.html).
 <div>
 <iframe src="https://homepage.univie.ac.at/noichlm94/full/preprint/19851994.html" width="700" height="800">
@@ -108,17 +105,19 @@ link](https://homepage.univie.ac.at/noichlm94/full/preprint/20052014.html).
 </iframe>
 </div>
 
-I think these graphics serve quite well to show how the intellectual landscape in these five journals has been broadened over time.
+I think these graphics tend to indicate that the intellectual landscape in these five journals has been broadened over time.
 
 
-## Caveats
+## Length of Bibliographies
 
-One important po
-
+Eugenio noted that while the sample is nearly constant over time, as the five journals output similar numbers of papers every year, the length of bibliographies, and therefore the size of the co-citation networks has increased strongly. 
 This seems to agree with general trends in philosophy. From a larger
-dataset I had around (used in this visualization) I have extracted
+dataset I had lying around ((used in this visualization)[https://homepage.univie.ac.at/noichlm94/full/zoom_final/index.html]) I have extracted the length of bibliographies over time, and the picture suggests quite a considerable effect (depicted using `ggpointdensity`{.r} by (Lukas Kremer)[https://github.com/LKremer/ggpointdensity]).
 
 ![](a09b8624c4a37dec07e9ff333abca794.png)
+
+It is at the moment not clear to us what drives this effect. On the one hand, technological advancements might have made the management of large amounts of literature far easier. But it might as well be connected with various cultural changes in the discipline. I'm very interested to hear opinions on how this effect should be treated when doing diachronic analyses of literature: Should it somehow be corrected for, to ease comparability? How can it be treated a genuine feature of the data?
+
 
 ## Literature
 
