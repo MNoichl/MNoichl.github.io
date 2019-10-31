@@ -12,5 +12,5 @@ parent: DH, Romanov, 2019
 
 
 
-
-![]("2019-10-31.png")
+And here's the Python-Screenshot.
+![](2019-10-31.png)
