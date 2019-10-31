@@ -8,7 +8,7 @@ parent: DH, Romanov, 2019
 
 # Homework no. 4
 
-*Below is a short proposal I recently wrote. You can download the pdf (here)[https://mnoichl.github.io/docs/Romanov/struct_models.pdf].**
+*Below is a short proposal I recently wrote. You can download the pdf [here](https://mnoichl.github.io/docs/Romanov/struct_models.pdf).*
 # Introduction
 
 We tend to think about the category of "the sciences" as divided into
