@@ -8,7 +8,13 @@ parent: DH, Romanov, 2019
 
 # Homework no. 4
 
-*Below is a short proposal I recently wrote. You can download the pdf [here](https://mnoichl.github.io/docs/Romanov/struct_models.pdf).*
+And here's the Python-Screenshot.
+![](2019-10-31.png)
+
+*Below is a short proposal I recently wrote. You can download the pdf [here](https://mnoichl.github.io/docs/Romanov/struct_models.pdf) and the odt [here](https://mnoichl.github.io/docs/Romanov/struct_models.odt).*
+
+
+
 # Introduction
 
 We tend to think about the category of "the sciences" as divided into
@@ -217,5 +223,4 @@ Clustering Methods." *Journal of the American Statistical Association*
 
 
 
-And here's the Python-Screenshot.
-![](2019-10-31.png)
+
