@@ -11,7 +11,7 @@ parent: DH, Romanov, 2019
 Here's the Python-Screenshot.
 ![](2019-10-31.png)
 
-*And below is a short proposal I recently wrote. You can download the pdf [here](https://mnoichl.github.io/docs/Romanov/struct_models.pdf) and the odt <a href="https://mnoichl.github.io/docs/Romanov/struct_models.odt" download>here</a>.*
+*And below is a short proposal I recently wrote. You can download the pdf [here](https://mnoichl.github.io/docs/Romanov/struct_models.pdf) and the odt <a href="https://mnoichl.github.io/docs/Romanov/struct_models.odt" download="https://mnoichl.github.io/docs/Romanov/struct_models.odt">here</a>.*
 
 
 # Introduction
