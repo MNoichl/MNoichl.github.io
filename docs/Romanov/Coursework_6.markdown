@@ -53,3 +53,7 @@ for link, article  in zip(linklist,linktexts):
     with open(filename, 'wb') as f:
         f.write(requests.get(link).content)
 ```
+
+*And here's my progress with the python tutorials:*
+
+![](2019-11-20.png)
