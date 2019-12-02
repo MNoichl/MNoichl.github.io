@@ -1,14 +1,14 @@
 ---
 layout: page
-title: Homework No. 6
+title: Homework No. 7
 has_children: false
 parent: DH, Romanov, 2019
 ---
 
 
-# Homework no. 6
+# Homework no. 7
 
-# Downloading the *Daily Dispatch*
+# Splitting the *Daily Dispatch*
 First we import some libraries:
 
 ```python
