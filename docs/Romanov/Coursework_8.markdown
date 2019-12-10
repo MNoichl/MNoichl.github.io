@@ -9,9 +9,9 @@ parent: DH, Romanov, 2019
 # Homework no. 8
 
 # *Daily Dispatch* to .tsv
-After the same imports as last week, we define a little function that strips off .xml tags from any string we pass to it. Then we loop over every file. We split at the markers for articles `<div3 type=` and then take the first of these items, and split it at `<date value\=\"`. The next then letters that come after this are the date we are interested in, and so we save it to the variable `date`. Then we loop over the individual articles, splitting off the first tiny bit, which was left from the `<div3`-tag, and keeping it, as it denotes the article type. In a similar fashion we get the content of the head and the article, to which we apply theremove_xml-function.
+After the same imports as last week, we define a little function that strips off .xml tags from any string we pass to it. Then we loop over every file. We split at the markers for articles `<div3 type=` and then take the first of these items, and split it at `<date value\=\"`. The next ten letters which come after this are the date we are interested in, and so we save it to the variable `date`. Then we loop over the individual articles, splitting of the first tiny bit, which was left from the `<div3`-tag, and keeping it, as it denotes the article type. In a similar fashion we get the content of the head and the article, to which we apply the remove_xml-function.
 
-Then all variables of interest are appended to a dictionary we defined earlier. When the loop has concluded, we convert the dictionary to a dataframe, check whether everything looks nice, and then save it off as a tab-seperated file.
+Then all variables of interest are appended to a dictionary we defined earlier. When the loop has concluded, we convert the dictionary to a dataframe, check whether everything looks nice, and then save it of as a tab-seperated file.
 
 
 ```python
@@ -44,4 +44,4 @@ results_df.to_csv('results.tsv', sep='\t',escapechar ='\\')
 
 # Python-Progress:
 
-![2019-12-10](2019-12-10)
+![2019-12-10](2019-12-10.png)
