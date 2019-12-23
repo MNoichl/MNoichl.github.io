@@ -22,43 +22,47 @@ Some examples for such structural claims, which I recently came across, might be
 
 One might at this point ask: Unity, distance, dissimilarity – regarding what measure? When these claims are made, this is often not entirely clear. And indeed there are multiple plausible candidates for such measures. One might for example be concerned about some kind of social distance – do people interact frequently? Do they have common acquaintances? Frequent the same institutions? But one might also think about something in the realm of what might be vaguely called intellectual distances, and which would include such things as stemming from the same intellectual tradition, engaging with the same thematic field or using the same, or related concepts. 
 
-In this case, the measure can be stated precisly: I will be using bibliographic coupling, which counts the amount of sources, which two articles share, as an indicator for their similarity. When done for all articles in a dataset, this gives a weighted network, which can then be processed further. Below I have depicted such a network made from the most cited papers in the dataset of analytical philosophy used by Petrovich and Buonomo 2018 \?
+In this case, the measure can be stated precisly: I will be using bibliographic coupling, which counts the amount of sources, which two articles share, as an indicator for their similarity. When done for all articles in a dataset, this gives a weighted network, which can then be processed further.
+Below I have depicted such a network made from the most cited papers in the dataset of analytical philosophy used by Petrovich and Buonomo 2018. Each point represents a paper, colored according to the cluster that was assigned to it using Louvain-community detection, and linked to all the other papers with wich it shares citations. The layout is simply force directed (forceatlas2), and I used datashaders lovely edge-bundling capabilities to prettify it.
 
 ![](205_nodes_75_citations_minimum_0_k_label.png)
 
-What does the bibliographic coupling measure actually relate to? On the one hand it certainly has a social component to it, as citations 
+What does the bibliographic coupling measure actually relate to? On the one hand it certainly has a social component to it. People might be inclined to cite their friends because they want do them a courtesy, or cite important people in their field to curry favour. On the other hand they might avoid arguably warranted citations out of personal antipathy, or for reasons of academic politics. But these behaviours are, at least from the outside, indistinguishable from intellectual reasons for citations: friends might be cited because they are likely to work in  a similar field, and possess high saliency, important people will be cited, because their work is – well – important, and because their names provide valuable shorthands, which allow the reader to locate the text in the literature. And on the whole, articles that cite a lot of the same literature can be expected to treat similar themes (I won't go into this here, but for the dataset at hand, bibliographic coupling relations and textual similarity seem to be correlated.) 
+
+Let's have alook at a network drawn from the same sample, but lets lower our bar of entry. In the one above we considered only those papers which were cited at least 75 times. This time we look at the larger sample of those that were cited at least 50 times:
+
+![](205_nodes_50_citations_minimum_0_k_label.png)
+
+This new sample of course includes the whole previous network. This means that we can now ask, how well those two networks, which represent our structural knowledge of the literature so far, match up.
+
+A sensible way to test, how well the small, but illustrious samples match up with the larger ones from which they are drawn, is to let both undergo the same clustering process, and then count how often a pair of articles that ends up in the same cluster in  one clustering solution, ends up in the same cluster in the other one. If all the pairs from the smaller samples end up together in the same clusters in the larger sample, the structures of both samples match up very well. If on the other hand they only rarely match up, it stands to reason, that we should be very cautious in drawing inferences about the whole from structures which we noted in a small sample.
+
+The most common measure to test how well two clustering solutions match up is the rand-index, which is defined ....
+
+
+I have calculated rand indices for all the 
 
 
 
-A sensible way to test, how well small, but illustrious samples match up with the larger samples from which they are drawn, is to let both undergo the same clustering process, and then count how often a pair of articles that ends up in the same cluster in  one clustering solution, ends up in the same cluster in the other one. If all the pairs from the smaller sample end up together in the same clusters in the larger sample, the structures of both samples match up very well. (Unless something has gone wrong with the clustering along the way.
 
-If on the other hand they only rarely match up, we should be very cautious in drawing inferences about the whole from structures which we noted in a small sample.
-
-
-
-The number of clusters which our clustering-algorithm settles on is not the most relevant here: If it were for example to keep a set of articles in one sample together, but simply split that set into two in the other sample -- which might well be compatible with very similar structure -- this should not have a very large impact on the rand-index, as most pairs of nodes will still be kept together in their respective sub-clusters. I have checked my results with spectral clustering, which allows two define a constant number of clusters beforehand. It doesn't make a huge difference for the results, if anything, the rand-indices get smaller and the "channel" of high rand-indices narrows.
+The number of clusters which our clustering-algorithm settles on is not the most relevant here: If it were for example to keep a set of articles in one sample together, but simply split that set into two in the other sample -- which might well be compatible with very similar structure -- this should not have a very large impact on the rand-index, as most pairs of nodes will still be kept together in their respective sub-clusters. I have checked my results with spectral clustering, which allows two define a constant number of clusters beforehand. It doesn't make a huge difference for the results. If anything, the rand-indices get smaller and the "channel" of high rand-indices narrows.
 
 
 
 
+A lot more work remains to be done, in order to make this point more forceful. Obviously, more and different datasets ought to be considered. Also it would be interesting to check whether highly cited literature is better, worse or equally inept at matching the whole structure as randomly drawn samples. I can imagine all possibilities here: Highly cited literature might actually mirror the literature better, because it features as a shorthand for larger debates. But it might also do worse, for the very same reason, because it represents something more extreme than a random control might. I'm not entirely sure what the adequate statistics are for this, so if somebody who has ideas about it wants to get in touch, I'd be grateful. For now I'll take my leave with a last image, of the full network:
+
+![](205_nodes_0_citations_minimum_0_k_label.png)
 
 
-(n) Caveats 
-
-more formal evaluation 
-
-even larger scale, more runs
-
-random controls
-
-
-more datasets
 # Literature
 
 
-Glock, Hans-Johann. What is analytic philosophy? Cambridge University Press, 2008.
+Glock, Hans-Johann. *What is analytic philosophy?* Cambridge University Press, 2008.
 
-Knobe, Joshua and Nichols, Shaun, "Experimental Philosophy", The Stanford Encyclopedia of Philosophy (Winter 2017 Edition), Edward N. Zalta (ed.), URL = <https://plato.stanford.edu/archives/win2017/entries/experimental-philosophy/>.
+Knobe, Joshua and Nichols, Shaun, "Experimental Philosophy", *The Stanford Encyclopedia of Philosophy (Winter 2017 Edition)*, Edward N. Zalta (ed.), URL = <https://plato.stanford.edu/archives/win2017/entries/experimental-philosophy/>.
 
 
-Latour, Bruno. 2003. Science in Action: How to Follow Scientists and Engineers through Society. 11. print. Cambridge, Mass: Harvard Univ. Press.
+Latour, Bruno. 2003. *Science in Action: How to Follow Scientists and Engineers through Society* 11. print. Cambridge, Mass: Harvard Univ. Press.
+
+Rand, William. 1971. Objective criteria for the evaluation of clustering methods. *Journal of the American Statistical association*, 66(336):846–850
