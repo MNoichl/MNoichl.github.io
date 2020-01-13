@@ -5,9 +5,9 @@ has_children: false
 nav_order: 5
 ---
 
-# [Draft] An argument for scale in (computational) intellectual history
+# An argument for scale in (computational) intellectual history
 
-In his comments on my recent post at this ![blog](https://dr2blog.hcommons.org/2019/11/04/a-short-and-informal-replication-of-petrovich-and-buonomo-2018/), Eugenio raised the interesting question of how the structure that we arive at through bibliometric methods changes, if we de- or increase the size of our sample. I will frame this question slightly different, and try to give some indication about what I belief to be the right answer to it, using again the dataset collected by Petrovich and Buonomo 2018.
+In his comments on my recent post at this [blog](https://dr2blog.hcommons.org/2019/11/04/a-short-and-informal-replication-of-petrovich-and-buonomo-2018/), Eugenio raised the interesting question of how the structure that we arive at through bibliometric methods changes, if we de- or increase the size of our sample. I will frame this question slightly different, and try to give some indication about what I belief to be the right answer to it, using again the dataset collected by Petrovich and Buonomo 2018.
 
 Let me begin by getting a little terminology in order. When doing analyses of literature samples using citations, we mainly differentiate three types of networks: citation-networks, co-citation-networks and bibliographical coupling-networks. I have illustrated their relationships below:
 
@@ -17,7 +17,7 @@ A citation-network simply links all sampled articles to their cited sources, whi
 
 In his comment, Eugenio was, if I understood him correctly, mainly interested in the impact of the size of the sample drawn *from the co-citation network*. I think that this is an interesting question, but what I am interested below is slightly different, as I will vary the size of the literature-sample itself.
 
-The question I'm interested in, is in how well the network structure of the most read articles, which arguably will form the picture that most people have of their discipline, mirrors the structure of the whole network. If they do  mirror it adequately – if networks of academic relations are self-similar – we can learn a lot about the structure of the whole by studying only the best and the few. If on the other hand they don't, we are always in considerable danger of error when we make structural claims about a discipline without considering large datasets. 
+The question I'm interested in, is in how well the network structure of the most cited articles, which arguably will determine much of the picture that most people have of their discipline, mirrors the structure of the whole network. If they do  mirror it adequately – if networks of academic relations are self-similar to at least some degree – we can learn a lot about the structure of the whole by studying only the best and the few. If on the other hand they don't, we are always in considerable danger of error when we make structural claims about a discipline without considering large datasets. 
 
 With a *structural claim about a discipline* I mean any claim about the unity or dis-unity of a certain body of intellectual production, and claims about the distance or nearness between multiple such bodies. This also includes common claims about changes in those structures.
 
@@ -29,13 +29,13 @@ Some random examples for such structural claims, which I recently came across, m
 
 One might at this point ask: Unity, distance, dissimilarity – regarding what measure? When these claims are made, this is often not entirely clear. And there are multiple plausible candidates for such measures. One might for example be concerned about some kind of social distance – do people interact frequently? Do they have common acquaintances? Frequent the same institutions? But one might also think about something in the realm of what might be vaguely called intellectual distances, and which would include such things as stemming from the same intellectual tradition, engaging with the same thematic field or using the same, or related concepts. 
 
-In this case, the measure can be stated precisly: I will mainly be using bibliographic coupling, which counts the sources, which two articles share, as an indicator for their similarity. When done for all articles in a sample of literature, this results in a weighted network, which can then be processed further.
+In this case, the measure can be stated precisly: I will first use bibliographic coupling, which counts the sources, which two articles share, as an indicator for their similarity. When done for all articles in a sample of literature, this results in a weighted network, which can then be processed further. Later on I will also have a look at co-citation-networks.
 
-Below I have depicted such a network made from the most cited papers (at least 75 received citations) in the dataset of analytical philosophy used by Petrovich and Buonomo 2018. Each point represents a paper, colored according to the cluster that was assigned to it using Louvain-community detection, and linked to all the other papers with wich it shares citations. The layout is simply force directed (forceatlas2), and I used datashaders lovely edge-bundling capabilities to make it a little bit prettier.
+Below I have depicted such a bibliographic coupling network made from the most cited papers (at least 75 received citations) in the dataset of analytical philosophy used by Petrovich and Buonomo 2018. Each point represents a paper, colored according to the cluster that was assigned to it using Louvain-community detection, and linked to all the other papers with wich it shares citations. The layout is simply force directed (python implementation of forceatlas2: great package by Bhargav Chippada, [check it out!](https://github.com/bhargavchippada/forceatlas2)), and I used datashaders lovely edge-bundling capabilities to make it a little bit prettier.
 
 ![](205_nodes_75_citations_minimum_0_k_label.png)
 
-What does the bibliographic coupling measure actually relate to? On the one hand it certainly has a social component to it. People might be inclined to cite their friends because they want do them a courtesy, or cite important people in their field to curry favour. On the other hand they might avoid arguably warranted citations out of personal antipathy, or for reasons of academic politics. But these behaviours are, at least from the outside, indistinguishable from intellectual reasons for citations: friends might be cited because they are likely to work in  a similar field, and possess high saliency, important people will be cited, because their work is – well – important, and because their names provide valuable shorthands, which allow the reader to locate the text in the literature. And on the whole, articles that cite a lot of the same literature can be expected to treat similar themes (I won't go into this here, but for the dataset at hand, bibliographic coupling relations and textual similarity seem to be somewhat correlated.) 
+What does the bibliographic coupling measure actually relate to? On the one hand it certainly has a social component to it. People might be inclined to cite their friends because they want do them a courtesy, or cite important people in their field to curry favour. On the other hand they might avoid arguably warranted citations out of personal antipathy, or for reasons of academic politics. But these behaviours are, at least from the outside, indistinguishable from intellectual reasons for citations: friends might be cited because they are likely to work in  a similar field, and possess high saliency, important people will be cited, because their work is – well – important, and because their names provide valuable shorthands, which make it easier for the reader to understand where the author comes from. And on the whole, articles that cite a lot of the same literature can be expected to treat similar themes (I won't go into this here, but for the dataset at hand, bibliographic coupling relations and textual similarity seem to be somewhat correlated.) 
 
 Let's have a look at a network drawn from the same sample, but lets lower our bar of entry. In the one above we considered only those papers which were cited at least 75 times. This time we look at the slightly larger sample of those that were cited at least 50 times, which adds roughly 150 articles:
 
@@ -43,12 +43,30 @@ Let's have a look at a network drawn from the same sample, but lets lower our ba
 
 This new sample of course includes the whole previous network. This means that we can now ask, how well those two networks, which represent our structural knowledge of the literature so far, match up.
 
-A sensible way to test, how well the small, but illustrious samples match up with the larger ones from which they are drawn, is to let both undergo the same clustering process, and then count how often a pair of articles that ends up in the same cluster in  one clustering solution, ends up in the same cluster in the other one. If all the pairs from the smaller samples end up together in the same clusters in the larger sample, the structures of both samples match up very well. If on the other hand they only rarely match up, it stands to reason, that we should be very cautious in drawing inferences about the whole from structures which we noted in a small sample.
+A sensible way to test, how well the small, but illustrious samples match up with the larger ones from which they are drawn, is to let both undergo the same clustering process, and then count how often a pair of articles that ends up in the same cluster in  one clustering solution, ends up in the same cluster in the other one. If all the pairs from the smaller samples end up together in the same clusters in the larger sample, the structures of both samples match up very well. If on the other hand they only rarely match up,  we should be very cautious in drawing inferences about the whole from structures which we noted in a small sample. Here, by the way, is what the whole of our sample from analytic philosophy looks like:
 
-The most common measure to test how well two clustering solutions match up is the rand-index. It relates how often a pair of datapoints, which were clustered together under two different clustering methods, end up together in the same cluster under both methods to the total number of possible pairings. (See ![here](https://davetang.org/muse/2017/09/21/the-rand-index/
+![](4168_nodes_50_citations_minimum_0_k_label.png)
+
+
+The most common measure to test how well two clustering solutions match up is the rand-index (cf. Rand,1971). It relates how often a pair of datapoints, which were clustered together under two different clustering methods, end up together in the same cluster under both methods to the total number of possible pairings. (See [here](https://davetang.org/muse/2017/09/21/the-rand-index/
 ) for a nice explanation.) If the result is near one, we have a very good match up between the clusterings, if it's nearer to zero, we find little agreement. 
 
-I have now drawn samples for all citation counts from 100 to 0 from the sample of analytical philosophy, made bibliographic coupling networks of them, partitioned them with the louvain-community-detection-algorithm, and then calculated the rand indices for all sets of articles which are present in any two samples. You can see the results in the heatmap below.
+I have now drawn samples for all citation counts from 100 to 0 from the sample of analytical philosophy, made bibliographic coupling networks of them, partitioned them with the [louvain-community-detection-algorithm](https://github.com/vtraag/louvain-igraph), and then calculated the rand indices for all sets of articles which are present in any two samples. You can see the results in the heatmap below.
+
+From the top left to the lower right there runs a diagonal bright line, indicating that each sample, when compared with itself, yields a rand index of 1, which is of course what we would expect. 
+
+Along this diagonal we find squarish shapes that indicate groups of samples that are among themselves rather similar. In the upper left hand corner these groups tend to be small, indicating that here there is little agreement among the samples, although they are differ very little in absolute numbers. As we progress down the diagonal though, agreement rises, as the squares get larges.
+
+![](RIbibcoup.png)
+
+
+If we want to see how well the small samples agree with the big samples, we should direct our attention to the right outer border of the diagram. While it is a little bit noisy, we can clearly see agreement between the clustering results consistently rising, as the sample size gets bigger. 
+
+One should note, that the number of clusters which our clustering-algorithm settles on is not the most relevant here: If it were for example to keep a set of articles in one sample together, but simply split that set into two in the other sample -- which might well be compatible with very similar structure -- this should not have a very large impact on the rand-index, as most pairs of nodes will still be kept intact in their respective sub-clusters. I have checked my results with spectral clustering, which allows two define a constant number of clusters beforehand. It doesn't make a huge difference for the results. If anything, the rand-indices get smaller and the "channel" of high rand-indices narrows.
+
+
+Now let's take a look at the co-citation-networks. I have given a description about how they are constructed above. As they do not relate papers within the sample with eachother, they provide less of a direct view of the discipline, and more of a glimpse into how the discipline structures the literature it interacts with, which of course in turn tells us something about the discipline. Also, those networks tend to be to be far larger than bibliographic coupling networks, as many 
+
 
 ![](RIbibcoup.png)
 
@@ -56,10 +74,6 @@ I have now drawn samples for all citation counts from 100 to 0 from the sample o
 
 
 
-
-
-
-The number of clusters which our clustering-algorithm settles on is not the most relevant here: If it were for example to keep a set of articles in one sample together, but simply split that set into two in the other sample -- which might well be compatible with very similar structure -- this should not have a very large impact on the rand-index, as most pairs of nodes will still be kept together in their respective sub-clusters. I have checked my results with spectral clustering, which allows two define a constant number of clusters beforehand. It doesn't make a huge difference for the results. If anything, the rand-indices get smaller and the "channel" of high rand-indices narrows.
 
 
 
@@ -74,7 +88,6 @@ A lot more work remains to be done, in order to make this point more forceful. O
 Glock, Hans-Johann. *What is analytic philosophy?* Cambridge University Press, 2008.
 
 Knobe, Joshua and Nichols, Shaun, "Experimental Philosophy", *The Stanford Encyclopedia of Philosophy (Winter 2017 Edition)*, Edward N. Zalta (ed.), URL = <https://plato.stanford.edu/archives/win2017/entries/experimental-philosophy/>.
-
 
 Latour, Bruno. 2003. *Science in Action: How to Follow Scientists and Engineers through Society* 11. print. Cambridge, Mass: Harvard Univ. Press.
 
