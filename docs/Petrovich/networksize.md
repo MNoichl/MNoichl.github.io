@@ -7,7 +7,7 @@ nav_order: 5
 
 # An argument for scale in (computational) intellectual history
 
-In his comments on my recent post at this [blog](https://dr2blog.hcommons.org/2019/11/04/a-short-and-informal-replication-of-petrovich-and-buonomo-2018/), Eugenio raised the interesting question of how the structure that we arive at through bibliometric methods changes, if we de- or increase the size of our sample. I will frame this question slightly different, and try to give some indication about what I belief to be the right answer to it, using again the dataset collected by Petrovich and Buonomo 2018.
+In his comments on my recent post at this [blog](https://dr2blog.hcommons.org/2019/11/04/a-short-and-informal-replication-of-petrovich-and-buonomo-2018/), Eugenio raised the interesting question of how the structures produced by bibliometric methods change, if we de- or increase the size of our sample. I will frame this question slightly different, and try to give some indication about what I believe to be the right answer to it, using again the dataset collected by Petrovich and Buonomo 2018.
 
 Let me begin by getting a little terminology in order. When doing analyses of literature samples using citations, we mainly differentiate three types of networks: citation-networks, co-citation-networks and bibliographical coupling-networks. I have illustrated their relationships below:
 
@@ -19,7 +19,7 @@ In his comment, Eugenio was, if I understood him correctly, mainly interested in
 
 The question I'm interested in, is in how well the network structure of the most cited articles, which arguably will determine much of the picture that most people have of their discipline, mirrors the structure of the whole network. If they do  mirror it adequately – if networks of academic relations are self-similar to at least some degree – we can learn a lot about the structure of the whole by studying only the best and the few. If on the other hand they don't, we are always in considerable danger of error when we make structural claims about a discipline without considering large datasets. 
 
-And we should note that this is a serious possibility: Attention in philosophy tends to rest on a relativly small number of very prominent actors. We can easily show this within the dataset at hand, if we order all papers by the number of citations they received after the Web-of-Science-Index. As one can see in the graphic below, most papers receive barely any citations, while most citations are taken up by just a few papers. We can calculate the Gini-coefficient, a standard measure for inequality, for this distribution and arive at value 0.66, where zero would indicate all papers receiving equal citations, and one indicating all citations going to one single paper. This is comparable to that of the income distributions of some of the most unequal countries on earth.
+And we should note that this is a serious possibility: Attention in philosophy tends to rest on a relativly small number of very prominent actors. We can easily show this within the dataset at hand, if we order all papers by the number of citations they received after the Web-of-Science-Index. As one can see in the graphic below, most papers receive barely any citations, while most citations are taken up by just a few papers. We can calculate the Gini-coefficient, a standard measure for inequality, for this distribution and arrive at the value 0.66, where zero would indicate all papers receiving equal citations, and one indicating all citations going to one single paper. This is comparable to that of the income distributions of some of the most unequal countries on earth.
 
 ![](citation_distribution.png)
 
@@ -59,21 +59,21 @@ I have now drawn samples for all citation counts from 100 to 0 from the sample o
 
 From the top left to the lower right there runs a diagonal bright line, indicating that each sample, when compared with itself, yields a rand index of 1, which is of course what we would expect. 
 
-Along this diagonal we find squarish shapes that indicate groups of samples that are among themselves rather similar. In the upper left hand corner these groups tend to be small, indicating that here there is little agreement among the samples, although they are differ very little in absolute numbers. As we progress down the diagonal though, agreement rises, as the squares get larges.
+Along this diagonal we find squarish shapes that indicate groups of samples that are among themselves rather similar. In the upper left hand corner these groups tend to be small, indicating that here is little agreement among the samples. As we progress down the diagonal though, agreement rises, as the squares get larger.
 
 ![](RIbibcoup.png)
 
 
-If we want to see how well the small samples agree with the big samples, we should direct our attention to the right outer border of the diagram. While it is a little bit noisy, we can clearly see agreement between the clustering results consistently rising, as the sample size gets bigger. 
+If we want to see how well the small samples in general agree with the big samples, we should direct our attention to the right outer border of the diagram. While it is a little bit noisy, we can clearly see agreement between the clustering results consistently rising, as the sample size gets bigger. 
 
-One should note, that the number of clusters which our clustering-algorithm settles on is not the most relevant here: If it were for example to keep a set of articles in one sample together, but simply split that set into two in the other sample -- which might well be compatible with very similar structure -- this should not have a very large impact on the rand-index, as most pairs of nodes will still be kept intact in their respective sub-clusters. I have checked my results with spectral clustering, which allows two define a constant number of clusters beforehand. It doesn't make a huge difference for the results. If anything, the rand-indices get smaller and the "channel" of high rand-indices narrows.
+One should note, that the number of clusters which our clustering-algorithm settles on is not the most relevant here: If it were for example to keep a set of articles in one sample together, but simply split that set into two in the other sample -- which might well be compatible with very similar structure -- this should not have a very large impact on the rand-index, as most pairs of nodes will still be kept intact in their respective sub-clusters. I have checked my results with spectral clustering, which allows you to define a constant number of clusters beforehand. It doesn't make a huge difference for the results. If anything, the rand-indices get smaller and the "channel" of high rand-indices narrows.
 
-Now let's take a look at the co-citation-networks. I have given a description about how they are constructed above. As they do not relate papers within the sample with eachother, they provide less of a direct view of the discipline, and more of a glimpse into how the discipline structures the literature it interacts with, which of course in turn tells us something about the discipline (This is the method Petrovich and Buonuomo where using). Also, those networks tend to be to be far larger than bibliographic coupling networks, as the sample is not limited to the few thousand paper in our dataset, but to the thousands different sources which they cite. 
+Now let's take a look at the co-citation-networks. I have given a description about how they are constructed above. As they do not relate papers within the sample with eachother, they provide less of a direct view of the discipline, and more of a glimpse into how the discipline structures the literature it interacts with, which of course in turn tells us something about the discipline (This is the method Petrovich and Buonuomo where using). Also, those networks tend to be far larger than bibliographic coupling networks, as the sample is not limited to the few thousand papers in our dataset, but consists of many the thousand different sources which they cite. 
 Here is what such a network might look like:
 
 ![](34554_nodes_10_citations_minimum_cit_net.png)
 
-And here is the same graphic as above, but for co-citation-networks. Note that due to memory-issues I wasn't able to calculate it down to the largest network-sizes. It would be easy to solve this issue with other forms of representation (I would suggest umap), but the point here is to use the most basic techniques available, as this will give the argument the most force.
+And here is the same graphic as above, but for co-citation-networks. Note that due to memory-issues I wasn't able to calculate it down to the largest network. It would be easy to solve this issue with other forms of representation (I would suggest umap & hDBSCAN), but the point here is to use the most basic techniques available, as this will give the argument the most force.
 
 ![](RIcocit.png)
 
