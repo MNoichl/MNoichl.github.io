@@ -19,6 +19,10 @@ In his comment, Eugenio was, if I understood him correctly, mainly interested in
 
 The question I'm interested in, is in how well the network structure of the most cited articles, which arguably will determine much of the picture that most people have of their discipline, mirrors the structure of the whole network. If they do  mirror it adequately – if networks of academic relations are self-similar to at least some degree – we can learn a lot about the structure of the whole by studying only the best and the few. If on the other hand they don't, we are always in considerable danger of error when we make structural claims about a discipline without considering large datasets. 
 
+And we should note that this is a serious possibility: Attention in philosophy tends to rest on a relativly small number of very prominent actors. We can easily show this within the dataset at hand, if we order all papers by the number of citations they received after the Web-of-Science-Index. As one can see in the graphic below, most papers receive barely any citations, while most citations are taken up by just a few papers. We can calculate the Gini-coefficient, a standard measure for inequality, for this distribution and arive at value 0.66, where zero would indicate all papers receiving equal citations, and one indicating all citations going to one single paper. This is comparable to that of the income distributions of some of the most unequal countries on earth.
+
+![](citation_distribution.png)
+
 With a *structural claim about a discipline* I mean any claim about the unity or dis-unity of a certain body of intellectual production, and claims about the distance or nearness between multiple such bodies. This also includes common claims about changes in those structures.
 
 Some random examples for such structural claims, which I recently came across, might be the following:
@@ -41,14 +45,14 @@ Let's have a look at a network drawn from the same sample, but lets lower our ba
 
 ![](353_nodes_50_citations_minimum_0_k_label.png)
 
-This new sample of course includes the whole previous network. This means that we can now ask, how well those two networks, which represent our structural knowledge of the literature so far, match up.
+This new sample of course includes the whole previous network. This means that we can now ask how well those two networks, which represent our structural knowledge of the literature so far, match up.
 
 A sensible way to test, how well the small, but illustrious samples match up with the larger ones from which they are drawn, is to let both undergo the same clustering process, and then count how often a pair of articles that ends up in the same cluster in  one clustering solution, ends up in the same cluster in the other one. If all the pairs from the smaller samples end up together in the same clusters in the larger sample, the structures of both samples match up very well. If on the other hand they only rarely match up,  we should be very cautious in drawing inferences about the whole from structures which we noted in a small sample. Here, by the way, is what the whole of our sample from analytic philosophy looks like:
 
-![](4168_nodes_50_citations_minimum_0_k_label.png)
+![](4168_nodes_0_citations_minimum_0_k_label.png)
 
 
-The most common measure to test how well two clustering solutions match up is the rand-index (cf. Rand,1971). It relates how often a pair of datapoints, which were clustered together under two different clustering methods, end up together in the same cluster under both methods to the total number of possible pairings. (See [here](https://davetang.org/muse/2017/09/21/the-rand-index/
+The most common measure to test how well two clustering solutions match up is the rand-index (cf. Rand,1971. Strictly speaking we are using the [adjusted rand score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html).). It relates how often a pair of datapoints, which were clustered together under two different clustering methods, end up together in the same cluster under both methods to the total number of possible pairings. (See [here](https://davetang.org/muse/2017/09/21/the-rand-index/
 ) for a nice explanation.) If the result is near one, we have a very good match up between the clusterings, if it's nearer to zero, we find little agreement. 
 
 I have now drawn samples for all citation counts from 100 to 0 from the sample of analytical philosophy, made bibliographic coupling networks of them, partitioned them with the [louvain-community-detection-algorithm](https://github.com/vtraag/louvain-igraph), and then calculated the rand indices for all sets of articles which are present in any two samples. You can see the results in the heatmap below.
@@ -64,23 +68,26 @@ If we want to see how well the small samples agree with the big samples, we shou
 
 One should note, that the number of clusters which our clustering-algorithm settles on is not the most relevant here: If it were for example to keep a set of articles in one sample together, but simply split that set into two in the other sample -- which might well be compatible with very similar structure -- this should not have a very large impact on the rand-index, as most pairs of nodes will still be kept intact in their respective sub-clusters. I have checked my results with spectral clustering, which allows two define a constant number of clusters beforehand. It doesn't make a huge difference for the results. If anything, the rand-indices get smaller and the "channel" of high rand-indices narrows.
 
+Now let's take a look at the co-citation-networks. I have given a description about how they are constructed above. As they do not relate papers within the sample with eachother, they provide less of a direct view of the discipline, and more of a glimpse into how the discipline structures the literature it interacts with, which of course in turn tells us something about the discipline (This is the method Petrovich and Buonuomo where using). Also, those networks tend to be to be far larger than bibliographic coupling networks, as the sample is not limited to the few thousand paper in our dataset, but to the thousands different sources which they cite. 
+Here is what such a network might look like:
 
-Now let's take a look at the co-citation-networks. I have given a description about how they are constructed above. As they do not relate papers within the sample with eachother, they provide less of a direct view of the discipline, and more of a glimpse into how the discipline structures the literature it interacts with, which of course in turn tells us something about the discipline. Also, those networks tend to be to be far larger than bibliographic coupling networks, as many 
+![](34554_nodes_10_citations_minimum_cit_net.png)
 
+And here is the same graphic as above, but for co-citation-networks. Note that due to memory-issues I wasn't able to calculate it down to the largest network-sizes. It would be easy to solve this issue with other forms of representation (I would suggest umap), but the point here is to use the most basic techniques available, as this will give the argument the most force.
 
-![](RIbibcoup.png)
+![](RIcocit.png)
 
+Here we see that for co-citation-networks there is far more agreement among the highly cited works. But again, they seem to give a bad representation for the whole sample.
 
+This suggests to me that when considering small samples of highly cited papers – as one usually does, when one is engaged with sholarship – indeed a consistent picture emerges. But this picture can not be expected to adequatly represent the structure that would emerge if the whole discipline was be considered.
 
+We have seen that for two reasonable and quite common methods of getting a birds-eye view of a discipline there is a huge difference between the pictures which emerge from small and large samples. 
 
+This suggests two things: First, sample-size matters for studies that analyze citations. If we want to formulate claims at the level of a whole discipline, it does not suffice to grab a few dozen papers and analyze those, which somewhat vindicates the approach taken by Eugenio and myself. And second, the hopeful heuristic which is presupposed in much intellectual history, namely that from the relations of a view prominent works the structure of the literature of a whole period or body of research can be deduced, might well be unjustified. 
 
+A lot more work remains to be done, in order to make this point more forceful. Obviously, more and different datasets ought to be considered, multiple different clustering methods should be considered, and indicators for broader network structure should be collected and compared (In particular I want to try out the community-strength-indicator implemented [here](https://arxiv.org/pdf/1903.08012v1.pdf)). Also it would be interesting to check whether highly cited literature is better, worse or equally inept at matching the whole structure as randomly drawn samples.
 
-
-
-A lot more work remains to be done, in order to make this point more forceful. Obviously, more and different datasets ought to be considered. Also it would be interesting to check whether highly cited literature is better, worse or equally inept at matching the whole structure as randomly drawn samples. I can imagine all possibilities here: Highly cited literature might actually mirror the literature better, because it features as a shorthand for larger debates. But it might also do worse, for the very same reason, because it represents something more extreme than a random control might. I'm not entirely sure what the adequate statistics are for this, so if somebody who has ideas about it wants to get in touch, I'd be grateful. For now I'll take my leave with a last image, of the full network:
-
-![](205_nodes_0_citations_minimum_0_k_label.png)
-
+I can imagine all possibilities here: Highly cited literature might actually mirror the literature better, because it features as a shorthand for larger debates. But it might also do worse, for the very same reason, because it represents something more extreme than the random controls. I'm as of now not entirely sure what the adequate statistics are for this, so if somebody who has ideas about it wants to get in touch, I'd be grateful. 
 
 # Literature
 
