@@ -425,10 +425,14 @@
       #controls #more-controls {
         display: inline-block;
       }
+#impress {
+        display: none;
+      }
 
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
       #impress {
       	font-family: 'Libre Baskerville';
-
+        display: inline;
         position: absolute;
         z-index: 9999;
         top: 10px;
@@ -441,7 +445,7 @@
         color: #3498db;
         text-decoration: none;
       }
-
+}
       .show {
         opacity: 1.0 !important;
       }
@@ -561,8 +565,8 @@ a:active, a:hover { outline: 0; }
     
     
     
-<!--      <div id="impress"><i class="fa fa-info-circle"></i></div>
- -->     
+<div id="impress">Leider nicht für Smartphones optimiert: Wenn's nicht klappt, bitte am Desktop probieren!</div>
+
     <div id="tip" data-bind="tip">
       <div id="tip-text" data-bind="tipText"></div>
     </div>
