@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Citation-Analysis</title>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+
+	<style>
+	.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal {
+		font-family:"Source Sans Pro";
+		color: #080c1a;
+	}
+
+	.reveal h1 {
+		font-size: 1em;
+		font-variant: small-caps;
+		text-transform: none;
+	}
+	.reveal p {
+		margin-top: 20%;
+
+	}
+
+	.reveal{
+		background-color: #fcf8f2;
+	}
+
+	.reveal .slides {
+	text-align: left;
+	margin-top: 0px;
+	}
+/*	li:before {
+font-family:"Hoefler Text Pro Fleurons";
+
+content: 'a';
+margin-left: -40px;
+margin-right: 10px;
+}*/
+li{
+
+	/*list-style-type: none;*/
+	margin-top: 20px;
+}
+
+.reveal section img { 
+	background:none; 
+	border:none; 
+	box-shadow:none;
+	height:500px;
+	text-align: center;
+}
+
+.reveal .literature{
+	font-size: 8pt;
+}
+hr {
+/*width: 300px;*/
+margin-left: auto;
+margin-right: auto;
+height: 1.5px;
+opacity: 1;
+background-color:#080c1a;
+}
+
+
+	</style>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h1 style="margin-top: 35%">Progression of Climate Science, 1991-2013</h1><hr> Maximilian Noichl, Universität Wien, 2020<br><br><i>navigation at the bottom right</i></section>
+				
+<!-- <section><h1>Ein Beispiel: Digital Humanities</h1><p><ul><li>Zitationsdaten & Texte von Abstracts kombiniert</li><li>5759 Artikel</li><li>Projektion von Artikeln der Vortragenden auf der DHd 2020</li></ul></p></section> -->
+<section data-background-iframe="layouts/0.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/1.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/2.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/3.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/4.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/5.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/6.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/7.html" data-background-interactive>
+</section>
+<section data-background-iframe="layouts/8.html" data-background-interactive>
+</section>
+
+ 
+<!-- <section data-background-iframe="https://hist-analytic-philosophy.github.io/3ddiachronic.html" data-background-interactive>
+</section>
+
+<section><h1>Literatur</h1>
+<ul style="font-size: 0.7em;">
+<li>Collins, R. (1998). The sociology of philosophies: a global theory of intellectual change. Cambridge, Mass: Belknap Press of Harvard University Press.</li>
+
+<li>Healy, Kieran (2013). A Co-Citation Network for Philosophy. https://kieranhealy.org/blog/archives/2013/06/18/a-co-citation-network-for-philosophy/, accessed February 28, 2019.</li>
+
+<li>McInnes, Leland, John Healy, and James Melville (2018). UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction. ArXiv:1802.03426 [Cs, Stat]. http://arxiv.org/abs/1802.03426, accessed February 27, 2019.</li>
+
+<li>Weingart, Scott B. (2015).Finding the History and Philosophy of Science. Erkenntnis 80(1): 201–213.</li>
+</ul></section> -->
+
+
+
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				center: false,
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
